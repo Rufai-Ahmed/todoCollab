@@ -1,5 +1,6 @@
 import cors from "cors";
 import express, { Application } from "express";
+import { mainConnection } from "./utils/dbConfig";
 
 const app: Application = express();
 const port: number = 4000;
@@ -8,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const server = app.listen(port, () => {
+  mainConnection();
   console.log("Server don start");
 });
 
